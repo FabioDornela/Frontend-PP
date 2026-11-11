@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL_API = process.env.REACT_APP_API_URL || "http://localhost:5000/api";
+const URL_API = "https://backend-pp-lr5n.onrender.com";
 const CHAVE_TOKEN = "portalpet_token";
 
 export const tokenArmazenado = {
