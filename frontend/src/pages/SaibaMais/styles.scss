@@ -1,0 +1,615 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.saiba-mais-page {
+  --bg-page: #e5e8ec;
+  --surface-light: #f8f7f4;
+  --surface-pill: #e6eaee;
+  --pet-dark: #16232a;
+  --pet-slate: #2c3b42;
+  --pet-orange: #ef7d3b;
+  --pet-orange-soft: #fdede3;
+  --pet-text-muted: #64707a;
+
+  min-height: 100vh;
+  background: var(--bg-page);
+  color: var(--pet-dark);
+  overflow-x: hidden;
+  font-family: "Inter", "Poppins", sans-serif;
+
+  /* ================= HERO SECTION ================= */
+  .saiba-hero {
+    position: relative;
+    padding: 36px 42px 64px;
+    background: linear-gradient(
+      135deg,
+      var(--surface-light) 0%,
+      #eef0f3 58%,
+      var(--bg-page) 100%
+    );
+    overflow: hidden;
+  }
+
+  .saiba-hero-header {
+    position: relative;
+    z-index: 3;
+    max-width: 880px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 0.98;
+      color: var(--pet-dark);
+      text-transform: uppercase;
+
+      span {
+        color: var(--pet-orange);
+      }
+    }
+
+    .saiba-subtitle {
+      margin-top: 12px;
+      max-width: 245px;
+      font-size: clamp(13px, 1.35vw, 16px);
+      line-height: 1.4;
+      font-weight: 600;
+      color: var(--pet-text-muted);
+    }
+  }
+
+  /* Wrapper do Card Escuro + Cachorro + Patinhas */
+  .saiba-card-wrapper {
+    position: relative;
+    max-width: 700px;
+    margin: 76px auto 0;
+    z-index: 2;
+  }
+
+  /* Cachorro maior e bem posicionado no topo do card */
+  .saiba-peeking-dog {
+    position: absolute;
+    top: -195px;
+    right: 22px;
+    width: 410px;
+    height: 220px;
+    z-index: 5;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(0 10px 18px rgba(22, 35, 42, 0.2));
+    }
+  }
+
+  /* Card Escuro das 4 Etapas (Bordas superiores bem suaves/arredondadas) */
+  .saiba-steps {
+    position: relative;
+    z-index: 3;
+    background: var(--pet-dark);
+    border-radius: 40px 40px 32px 32px;
+    padding: 38px 44px 52px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 48px;
+    box-shadow: 0 18px 40px rgba(22, 35, 42, 0.16);
+  }
+
+  .saiba-step {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    &.step-2,
+    &.step-4 {
+      margin-top: 14px;
+    }
+  }
+
+  .saiba-step-icon {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+
+    .composite-icon {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      .inner-paw {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+      }
+
+      .inner-paw-home {
+        position: absolute;
+        bottom: 4px;
+      }
+    }
+
+    .step-badge {
+      position: absolute;
+      top: -4px;
+      right: -6px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--pet-orange);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .saiba-step-body {
+    h3 {
+      font-size: 14px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+
+      span {
+        color: var(--pet-orange);
+        margin-right: 3px;
+      }
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #b8c4cb;
+      max-width: 230px;
+    }
+  }
+
+  /* Botão "Começar a jornada" sem borda branca, limpo e sólido */
+  .saiba-journey-btn {
+    position: absolute;
+    bottom: -21px;
+    left: 52%;
+    transform: translateX(-50%);
+    padding: 12px 42px;
+    border-radius: 999px;
+    border: none;
+    background: var(--pet-orange);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(239, 125, 59, 0.38);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      background: #e06d2b;
+      transform: translateX(-50%) translateY(-2px);
+      box-shadow: 0 10px 24px rgba(239, 125, 59, 0.5);
+    }
+  }
+
+  /* ================= PATINHAS DECORATIVAS (Alinhadas e sem distorções) ================= */
+  .paw-decor {
+    position: absolute;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  .paw-orange-top-right {
+    top: -115px;
+    right: -16px;
+    width: 42px;
+    height: 42px;
+    color: var(--pet-orange);
+    fill: var(--pet-orange);
+    transform: rotate(12deg);
+  }
+
+  .paw-outline-right {
+    top: -10px;
+    right: -36px;
+    width: 44px;
+    height: 44px;
+    color: var(--pet-orange);
+    opacity: 0.65;
+    transform: rotate(15deg);
+  }
+
+  .paw-orange-left-top {
+    top: -12px;
+    left: -85px;
+    width: 28px;
+    height: 28px;
+    color: var(--pet-orange);
+    fill: var(--pet-orange);
+    transform: rotate(-10deg);
+  }
+
+  .paw-outline-left {
+    top: 45px;
+    left: -88px;
+    width: 42px;
+    height: 42px;
+    color: var(--pet-orange);
+    opacity: 0.5;
+    transform: rotate(-12deg);
+  }
+
+  .paw-dark-left-mid {
+    top: 52px;
+    left: -22px;
+    width: 42px;
+    height: 42px;
+    color: var(--pet-orange);
+    fill: var(--pet-slate);
+    transform: rotate(-15deg);
+  }
+
+  .paw-orange-left-small {
+    bottom: 52px;
+    left: -42px;
+    width: 25px;
+    height: 25px;
+    color: var(--pet-orange);
+    fill: var(--pet-orange);
+    transform: rotate(-10deg);
+  }
+
+  .paw-dark-left-bottom {
+    bottom: 6px;
+    left: -80px;
+    width: 34px;
+    height: 34px;
+    color: var(--pet-orange);
+    fill: var(--pet-dark);
+    transform: rotate(-12deg);
+  }
+
+  .paw-dark-bottom-right {
+    bottom: -6px;
+    right: 92px;
+    width: 36px;
+    height: 36px;
+    color: var(--pet-orange);
+    fill: var(--pet-slate);
+    transform: rotate(-10deg);
+  }
+
+  .paw-outline-bottom-right {
+    bottom: -22px;
+    right: 54px;
+    width: 32px;
+    height: 32px;
+    color: var(--pet-orange);
+    opacity: 0.7;
+    transform: rotate(10deg);
+  }
+
+  /* ================= SECÇÃO DOS 5 CACHORROS & ONDAS ================= */
+  .saiba-middle-wave {
+    position: relative;
+    background: var(--pet-slate);
+    padding-top: 10px;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -58px;
+      left: -8%;
+      width: 116%;
+      height: 105px;
+      background: var(--bg-page);
+      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+      z-index: 1;
+    }
+  }
+
+  .saiba-dogs-container {
+    position: relative;
+    z-index: 2;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 4px 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .doodle-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-right: 6px;
+    margin-bottom: 25px;
+
+    span {
+      display: block;
+      width: 15px;
+      height: 3px;
+      border-radius: 4px;
+      background: var(--pet-orange);
+
+      &:nth-child(1) {
+        transform: rotate(20deg);
+      }
+      &:nth-child(3) {
+        transform: rotate(-20deg);
+      }
+    }
+  }
+
+  .doodle-hearts {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-left: 6px;
+    margin-bottom: 15px;
+    color: var(--pet-orange);
+  }
+
+  .saiba-dogs-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    max-width: 820px;
+  }
+
+  .saiba-dog-item {
+    flex: 1;
+    height: clamp(140px, 18vw, 205px);
+    margin: 0 -14px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(0 6px 14px rgba(15, 24, 30, 0.42));
+    }
+
+    &.dog-center {
+      height: clamp(160px, 20.5vw, 232px);
+      z-index: 3;
+    }
+
+    &:nth-child(2),
+    &:nth-child(4) {
+      z-index: 2;
+      height: clamp(148px, 19vw, 215px);
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  /* ================= FAIXA E CARD CTA ================= */
+  .saiba-cta-band {
+    position: relative;
+    z-index: 4;
+    margin-top: -22px;
+    padding: 28px 24px 32px;
+    background: var(--bg-page);
+    border-radius: 48% 52% 45% 55% / 26px 26px 28px 28px;
+  }
+
+  .saiba-cta {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 24px 34px;
+    border-radius: 28px;
+    background: var(--surface-light);
+    border: 1px solid rgba(22, 35, 42, 0.06);
+    box-shadow: 0 12px 30px rgba(22, 35, 42, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .saiba-cta-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    background: var(--pet-orange-soft);
+    color: var(--pet-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      fill: var(--pet-orange);
+    }
+  }
+
+  .saiba-cta-text {
+    flex: 1;
+
+    h2 {
+      font-size: clamp(18px, 2.3vw, 26px);
+      font-weight: 900;
+      color: var(--pet-dark);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+
+      span {
+        color: var(--pet-orange);
+      }
+    }
+
+    p {
+      margin-top: 6px;
+      font-size: clamp(12px, 1.2vw, 14.5px);
+      line-height: 1.45;
+      color: var(--pet-text-muted);
+      font-weight: 500;
+    }
+  }
+
+  .saiba-cta-action {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    color: var(--pet-orange);
+    cursor: pointer;
+    padding: 8px;
+    transition: transform 0.2s ease;
+
+    .cta-mini-paw {
+      fill: var(--pet-orange);
+      transform: rotate(-18deg);
+    }
+
+    &:hover {
+      transform: translateX(4px);
+    }
+  }
+
+  /* ================= RODAPÉ ================= */
+  .saiba-footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 28px 16px;
+    background: var(--pet-dark);
+
+    .footer-watermark-paw {
+      color: #ffffff;
+      fill: #ffffff;
+      opacity: 0.08;
+
+      &.left {
+        transform: rotate(-15deg);
+      }
+
+      &.right {
+        transform: rotate(15deg);
+      }
+    }
+
+    .footer-center-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #b8c4cb;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+
+      .line {
+        width: clamp(40px, 10vw, 115px);
+        height: 1.5px;
+        background: var(--pet-orange);
+        opacity: 0.85;
+      }
+
+      .dot {
+        color: var(--pet-orange);
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+/* ================= RESPONSIVIDADE ================= */
+@media (max-width: 900px) {
+  .saiba-mais-page {
+    .saiba-hero {
+      padding: 28px 20px 50px;
+    }
+
+    .saiba-peeking-dog {
+      width: 290px;
+      height: 160px;
+      top: -145px;
+      right: 14px;
+    }
+
+    .paw-decor {
+      display: none;
+    }
+
+    .saiba-steps {
+      padding: 24px 22px 42px;
+      gap: 20px 24px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .saiba-mais-page {
+    .saiba-hero-header .saiba-subtitle {
+      max-width: 100%;
+    }
+
+    .saiba-card-wrapper {
+      margin-top: 135px;
+    }
+
+    .saiba-peeking-dog {
+      right: 50%;
+      transform: translateX(50%);
+      top: -140px;
+      width: 280px;
+    }
+
+    .saiba-steps {
+      grid-template-columns: 1fr;
+      padding: 24px 18px 44px;
+
+      .saiba-step.step-2,
+      .saiba-step.step-4 {
+        margin-top: 0;
+      }
+    }
+
+    .saiba-journey-btn {
+      left: 50%;
+      width: max-content;
+    }
+
+    .saiba-dog-item {
+      margin: 0 -8px;
+
+      &:nth-child(1),
+      &:nth-child(5) {
+        display: none;
+      }
+    }
+
+    .saiba-cta {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px 18px;
+      gap: 12px;
+    }
+
+    .saiba-footer .footer-center-line .line {
+      width: 24px;
+    }
+  }
+}

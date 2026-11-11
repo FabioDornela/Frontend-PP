@@ -1,0 +1,214 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.perfil-page {
+  padding: 40px;
+  min-width: 0;
+}
+
+.perfil-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+
+  h1 {
+    margin: 0 0 8px;
+    color: #292929;
+  }
+
+  p {
+    margin: 0;
+    color: #777;
+  }
+}
+
+.perfil-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: #fff0e7;
+  color: #e87538;
+}
+
+.perfil-form {
+  max-width: 800px;
+  padding: 28px;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  background: white;
+}
+
+.perfil-campos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    color: #444;
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    outline: none;
+    font: inherit;
+    font-weight: 400;
+    transition: border-color 0.2s ease;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #f17c3e;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  /* Bloco específico para o CEP e Botão Buscar */
+  .perfil-cep {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    label {
+      color: #444;
+      font-weight: 600;
+    }
+
+    .perfil-cep-busca {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      input {
+        flex: 1;
+      }
+
+      .perfil-cep-botao {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 13px 20px;
+        border: none;
+        border-radius: 9px;
+        background: #f17c3e;
+        color: #ffffff;
+        font: inherit;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s ease, transform 0.1s ease;
+
+        &:hover:not(:disabled) {
+          background: #df682d;
+        }
+
+        &:active:not(:disabled) {
+          transform: scale(0.98);
+        }
+
+        &:disabled {
+          background: #cccccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .perfil-cep-sucesso {
+      margin: 2px 0 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: #287847;
+    }
+
+    .perfil-cep-erro {
+      margin: 2px 0 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: #d9381e;
+    }
+  }
+
+  .perfil-sobre {
+    grid-column: 1 / -1;
+  }
+}
+
+.perfil-salvar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 20px;
+  margin-top: 24px;
+  border: none;
+  border-radius: 9px;
+  background: #f17c3e;
+  color: white;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #df682d;
+  }
+}
+
+.perfil-mensagem {
+  margin-top: 12px;
+  color: #287847;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .perfil-page {
+    padding: 24px 16px;
+  }
+
+  .perfil-form {
+    padding: 18px;
+  }
+
+  .perfil-campos {
+    grid-template-columns: 1fr;
+
+    .perfil-sobre {
+      grid-column: auto;
+    }
+
+    .perfil-cep-busca {
+      flex-direction: row;
+    }
+  }
+}
+.perfil-sair {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: -12px 0 20px;
+  padding: 8px 14px;
+  border: 1px solid rgba(22, 35, 42, 0.18);
+  border-radius: 10px;
+  background: transparent;
+  color: #292929;
+  font-weight: 700;
+  cursor: pointer;
+}

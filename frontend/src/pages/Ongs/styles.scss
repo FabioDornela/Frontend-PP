@@ -1,0 +1,164 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.ongs-layout {
+  min-height: 100vh;
+  background: #e5e8ec;
+}
+
+.ongs-page {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 24px 32px;
+  background: #e5e8ec;
+  color: #16232a;
+}
+
+.ongs-conteudo {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.ongs-filtros {
+  box-sizing: border-box;
+  padding: 24px 28px;
+  border-radius: 16px;
+  background: #f8f7f4;
+  box-shadow: 0 4px 20px rgba(22, 35, 42, 0.05);
+  border: 1px solid rgba(22, 35, 42, 0.06);
+
+  h1 {
+    margin: 0;
+    font-size: clamp(22px, 2.6vw, 32px);
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 6px 0 16px;
+    color: #4a5a63;
+  }
+}
+
+.ongs-busca {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  input {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 14px;
+    border: 1px solid rgba(22, 35, 42, 0.18);
+    border-radius: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border: 0;
+    border-radius: 10px;
+    background: #16232a;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+.ongs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.ongs-card {
+  box-sizing: border-box;
+  padding: 22px;
+  border-radius: 16px;
+  background: #f8f7f4;
+  border: 1px solid rgba(22, 35, 42, 0.06);
+  box-shadow: 0 4px 20px rgba(22, 35, 42, 0.05);
+}
+
+.ongs-card-topo {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  h2 {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.25;
+  }
+}
+
+.ongs-selo-demo {
+  display: inline-block;
+  margin: 10px 0 0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #fff3cd;
+  color: #7a5b00;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ongs-descricao {
+  margin: 12px 0;
+  color: #34454e;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ongs-contatos {
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  color: #34454e;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 6px;
+    word-break: break-word;
+  }
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+}
+
+.ongs-regioes {
+  font-size: 13px;
+
+  ul {
+    margin: 6px 0 0;
+    padding-left: 18px;
+  }
+}
+
+.ongs-vazio {
+  margin-top: 24px;
+  text-align: center;
+  color: #4a5a63;
+}
+
+@media (max-width: 768px) {
+  .ongs-page {
+    padding: 16px;
+  }
+}
+
+.ongs-subtitulo {
+  margin: 28px 0 0;
+  font-size: 18px;
+}

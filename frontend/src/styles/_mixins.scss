@@ -1,0 +1,27 @@
+@use "variables" as *;
+
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin surface-card($padding: 24px, $radius: $radius-lg) {
+  box-sizing: border-box;
+  padding: $padding;
+  border-radius: $radius;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+}
+
+@mixin focus-ring {
+  border-color: $color-accent-orange;
+  box-shadow: 0 0 0 3px rgba(239, 125, 59, 0.15);
+}

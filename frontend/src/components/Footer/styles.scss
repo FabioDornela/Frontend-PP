@@ -1,0 +1,48 @@
+@use "../../styles/variables" as *;
+
+.portalpet-footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px 16px;
+  background: $color-primary-dark;
+  border-radius: $radius-lg;
+  margin-top: 32px;
+
+  &__paw {
+    color: #ffffff;
+    fill: #ffffff;
+    opacity: 0.08;
+
+    &.left {
+      transform: rotate(-15deg);
+    }
+
+    &.right {
+      transform: rotate(15deg);
+    }
+  }
+
+  &__center {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #b8c4cb;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+
+    .line {
+      width: clamp(24px, 8vw, 100px);
+      height: 1.5px;
+      background: $color-accent-orange;
+      opacity: 0.85;
+    }
+
+    .dot {
+      color: $color-accent-orange;
+      font-size: 14px;
+    }
+  }
+}

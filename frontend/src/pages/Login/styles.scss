@@ -1,0 +1,114 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #e5e8ec;
+  color: #16232a;
+}
+
+.login-card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 420px;
+  padding: 28px;
+  border-radius: 16px;
+  background: #f8f7f4;
+  border: 1px solid rgba(22, 35, 42, 0.06);
+  box-shadow: 0 4px 20px rgba(22, 35, 42, 0.08);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  input {
+    padding: 10px 12px;
+    border: 1px solid rgba(22, 35, 42, 0.18);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  small {
+    font-weight: 400;
+    color: #4a5a63;
+  }
+}
+
+.login-marca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+
+  h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+}
+
+.login-abas {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 18px;
+
+  button {
+    flex: 1;
+    padding: 9px;
+    border: 1px solid rgba(22, 35, 42, 0.18);
+    border-radius: 10px;
+    background: transparent;
+    font-weight: 700;
+    cursor: pointer;
+
+    &.ativa {
+      background: #16232a;
+      color: #fff;
+      border-color: #16232a;
+    }
+  }
+}
+
+.login-erro {
+  margin: 0;
+  color: #b3261e;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.login-enviar {
+  padding: 11px;
+  border: 0;
+  border-radius: 10px;
+  background: #f17c3e;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
+}
+
+.login-voltar {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  color: #4a5a63;
+  font-size: 14px;
+}
