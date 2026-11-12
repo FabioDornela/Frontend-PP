@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL_API = "https://backend-pp-lr5n.onrender.com";
+const URL_API = "https://backend-pp-lr5n.onrender.com/api";
 const CHAVE_TOKEN = "portalpet_token";
 
 export const tokenArmazenado = {
